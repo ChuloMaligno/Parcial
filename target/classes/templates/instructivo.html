@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Información del aplicativo</title>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/nav.css}">
+</head>
+<body class="bg-light">
+	<header class="header">
+	<div class="logo">
+		<img th:src="@{/img/logo.png}" alt="Logo de la marca">
+	</div>
+	<nav>
+		<ul class="nav-links">
+			<li><a th:href="@{/}">Inicio</a></li>
+			<li><a th:href="@{/instructivo}">Instructivo</a></li>
+		</ul>
+	</nav>
+	<div class="dropdown">
+		<button class="btn btn-success dropdown-toggle" type="button"
+			id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="false">Ingresar</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item"
+				th:href="@{/login/{tipo}(tipo='administrador')}">Administrador</a> <a
+				class="dropdown-item" th:href="@{/login/{tipo}(tipo='bibliotecario')}">Bibliotecario</a>
+			<a class="dropdown-item" th:href="@{/login/{tipo}(tipo='usuario')}">Usuario</a>
+		</div>
+	</div>
+</header>
+	<div class="container mt-5">
+		<div class="text-center mb-4">
+			<h2 class="text-primary">Explicación de los Roles</h2>
+			<p class="text-muted">Conoce las responsabilidades y funciones de
+				cada rol en la plataforma.</p>
+		</div>
+
+		<div class="card shadow mb-4">
+			<div class="card-body">
+				<h4 class="text-success">Administrador</h4>
+				<p>El administrador es el responsable de supervisar y gestionar
+					todas las operaciones técnicas y funcionales de la plataforma. Es
+					el engranaje clave que garantiza que el sistema funcione de manera
+					eficiente, segura y satisfaga las necesidades de los usuarios de la
+					biblioteca. Más detalladamente, se encarga de registrar y gestionar
+					los otros tipos de usuario del aplicativo (usuario común,
+					bibliotecario). Además de encargarse de registrar y editar la
+					información de los libros, incluyendo su stock disponible.</p>
+			</div>
+		</div>
+
+		<div class="card shadow mb-4">
+			<div class="card-body">
+				<h4 class="text-info">Bibliotecario</h4>
+				<p>El bibliotecario se encarga de revisar la información y
+					disponibilidad de los libros de la biblioteca, también tiene la
+					capacidad de solicitar un restock a los libros que se necesiten. El
+					rol de bibliotecario también es responsable de revisar y gestionar
+					los préstamos que se hayan hecho por parte de los usuarios comunes.
+				</p>
+			</div>
+		</div>
+
+		<div class="card shadow mb-4">
+			<div class="card-body">
+				<h4 class="text-warning">Usuario Común</h4>
+				<p>El usuario sería el equivalente al cliente de una tienda,
+					puede visualizar los libros que estén disponibles y pedirlos en
+					préstamo por un plazo de 15 días antes de tener que devolverlo.
+					Aparte, puede revisar sus préstamos que se encuentren activos.</p>
+			</div>
+		</div>
+		<div class="text-center mt-5">
+			<h5 class="mb-3">Video explicativo</h5>
+			<video width="600" class="rounded shadow" controls>
+				<source th:src="@{/img/videoMuestra.mp4}" type="video/mp4">
+			</video>
+		</div>
+	</div>
+</body>
+</html>
